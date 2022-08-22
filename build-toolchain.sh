@@ -12,6 +12,7 @@ rm -rf installTmp
 # Build LLVM
 msg "Building LLVM..."
 ./build-llvm.py \
+	--branch "release/15.x" \
 	--shallow-clone \
 	--projects "clang;lld;polly;bolt" \
 	--targets "ARM;AArch64;X86" \
