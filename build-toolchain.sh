@@ -13,9 +13,11 @@ rm -rf installTmp
 msg "Building LLVM..."
 ./build-llvm.py \
 	--shallow-clone \
-	--projects "clang;lld;polly" \
+	--projects "clang;lld;polly;bolt" \
 	--targets "ARM;AArch64;X86" \
 	--lto "full" \
+	--pgo "kernel-defconfig-slim" \
+	--bolt \
 	--install-folder "installTmp" \
 	--clang-vendor "Lime's LLVMToolchain-$(date +%Y%m%d)" \
 	--defines "LLVM_PARALLEL_COMPILE_JOBS=$(nproc) LLVM_PARALLEL_LINK_JOBS=$(nproc) CMAKE_C_FLAGS=-O3 CMAKE_CXX_FLAGS=-O3"
